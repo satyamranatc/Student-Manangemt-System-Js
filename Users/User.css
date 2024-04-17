@@ -53,3 +53,38 @@ nav ul li a
     color: whitesmoke;
     font-size: 1.2rem;
 }
+
+
+#ListOfData
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+    flex-wrap: wrap;
+    column-gap: 20px;
+    row-gap: 20px;
+}
+
+.Card
+{
+    color: black;
+    min-width: 350px;
+    max-width: 450px;
+    height: 400px;
+    border-radius: 30px;
+    background-color: whitesmoke;
+    box-shadow: 0px 10px 30px gray;
+
+    display:grid ;
+    place-items: center;
+
+}
+
+.Card span
+{
+    display: flex;
+    width: 70%;
+    justify-content: space-evenly;
+    align-items: center;
+}
