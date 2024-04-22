@@ -1,60 +1,35 @@
+let MyForm = document.getElementById("MyForm");
 let ListOfData = document.getElementById("ListOfData");
 
-let Students = [
-    {
-        Id: 1,
-        Name: "Harsh",
-        Age: 23,
-        Class: 10,
-        Section: "A"
-    },
-    {
-        Id: 2,
-        Name: "Ajay",
-        Age: 23,
-        Class: 10,
-        Section: "A"
-    },
-    {
-        Id: 3,
-        Name: "Jaya",
-        Age: 23,
-        Class: 10,
-        Section: "A"
-    },
-    {
-        Id: 4,
-        Name: "Mohan",
-        Age: 23,
-        Class: 10,
-        Section: "A"
-    },
-    {
-        Id: 5,
-        Name: "Naman",
-        Age: 23,
-        Class: 10,
-        Section: "A"
-    },
-]
+let allStudents = [];
 
-function DisplayData()
+MyForm.addEventListener("submit",(e)=>{
+    e.preventDefault();
+
+    let Obj = {
+        Id: e.target[0].value,
+        Name: e.target[1].value,
+        Age: e.target[2].value,
+        Class: e.target[3].value,
+    }
+    allStudents.push(Obj);
+    console.log(allStudents);
+    Display();
+})
+
+
+function Display()
 {
-    Students.map((e)=>{
-        ListOfData.innerHTML += `
-        
-        <div class="Card">
-        <h2>Id:${e.Id} - Name:${e.Name}</h2>
-        <h3>Age:${e.Age}</h3>
 
-        <span>
-          <h3>Class:${e.Class}</h3>
-          <h3>Section:${e.Section}</h3>
-        </span>
-      </div>
-        
-        `
-    })
+ListOfData.innerHTML = ""
+allStudents.forEach((e)=>{
+    ListOfData.innerHTML += `
+    <div class='Card'>
+    <h1>${e.Id}</h1>
+    <h1>${e.Name}</h1>
+    <h1>${e.Age}</h1>
+    <h1>${e.Class}</h1>
+    </div>`
+})
 }
 
-DisplayData()
